@@ -1,6 +1,6 @@
 cabal-version:       2.2
 name:                ocap-io
-version:             0.1.0.0
+version:             0.1.1.0
 synopsis:            Object capability based IO
 description:
   Object capability based IO.
