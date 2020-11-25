@@ -45,8 +45,8 @@ runOCap :: OCapIO a -> IO a
 runOCap (OCapIO io) = io
 
 -- | Run an 'IO' action inside of 'CapIO'.
-runIO :: IO a -> IOKey -> OCapIO a
+runIO :: IOKey -> IO a -> OCapIO a
 -- Note: it is CRITICAL that we force evaluation of the IOKey here;
 -- otherwise someone could just pass undefined and circumvent the entirety
 -- of the protection provided by OCapIO.
-runIO io IOKey = OCapIO io
+runIO IOKey io = OCapIO io
