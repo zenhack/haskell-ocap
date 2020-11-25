@@ -103,3 +103,9 @@ hPut Handle {handle, key} = runIO key . BS.hPut handle
 
 hGet :: Handle 'True w -> Int -> OCapIO BS.ByteString
 hGet Handle {handle, key} = runIO key . BS.hGet handle
+
+hGetContents :: Handle 'True w -> OCapIO BS.ByteString
+hGetContents Handle {handle, key} = runIO key $ BS.hGetContents handle
+
+readFile :: Dir -> Path -> OCapIO BS.ByteString
+readFile dir@Dir{key} path = runIO key $ BS.readFile (resolvePathStr dir path)
