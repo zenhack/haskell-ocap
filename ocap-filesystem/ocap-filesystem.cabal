@@ -47,6 +47,7 @@ common shared-opts
       base >=4.12 && <5
     , ocap-io ^>=0.1.1
     , filepath ^>=1.4.2
+    , bytestring ^>=0.11.0
     , zenhack-prelude ^>=0.1
   default-language:    Haskell2010
 

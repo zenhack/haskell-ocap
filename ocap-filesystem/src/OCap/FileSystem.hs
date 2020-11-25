@@ -16,8 +16,10 @@ module OCap.FileSystem
     , hPutStrLn
     ) where
 
-import qualified System.IO as SIO
-import           Zhp       hiding (Handle, hPutStr, hPutStrLn, openBinaryFile)
+import Zhp hiding (Handle, hPutStr, hPutStrLn, openBinaryFile)
+
+import qualified Data.ByteString as BS
+import qualified System.IO       as SIO
 
 import OCap.IO
 
@@ -73,3 +75,9 @@ hPutStr Handle {handle, key} = runIO key . SIO.hPutStr handle
 
 hPutStrLn :: Handle -> String -> OCapIO ()
 hPutStrLn Handle {handle, key} = runIO key . SIO.hPutStrLn handle
+
+hPut :: Handle -> BS.ByteString -> OCapIO ()
+hPut Handle {handle, key} = runIO key . BS.hPut handle
+
+hGet :: Handle -> Int -> OCapIO BS.ByteString
+hGet Handle {handle, key} = runIO key . BS.hGet handle
